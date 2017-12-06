@@ -3,17 +3,17 @@ package com.yunionyun.mcp.mcclient.managers.impl;
 import com.yunionyun.mcp.mcclient.managers.MonitorManager;
 
 /**
- * 报警规则管理。
+ * 服务树管理。
  * @author <a href="mailto:mynameisny@qq.com">Tony Joseph</a>
  * @version 1.0
  */
-public class AlarmManager extends MonitorManager
+public class ServiceTreeManager extends MonitorManager
 {
 
-    public AlarmManager()
+    public ServiceTreeManager()
     {
-        super("alarm", "alarms", 
-                new String[] {"id", "metricName", "alarmCondition", "template", "alarmLevel", "expireSeconds", "escalateSeconds", "status"}, 
+        super("service_tree", "service_trees", 
+                new String[] {"id", "serviceTreeName", "serviceTreeStruct", "status"}, 
                 new String[] {"createBy", "updateBy", "deleteBy", "gmtCreate", "gmtModified", "gmtDelete", "isDeleted", "projectId", "remark"});
     }
     
