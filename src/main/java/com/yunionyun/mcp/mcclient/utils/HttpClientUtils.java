@@ -147,19 +147,19 @@ public class HttpClientUtils {
                 result = EntityUtils.toString(res.getEntity());
             }
         } catch (GeneralSecurityException e) {
-            logger.info("error  url:{}  boby {}", url, body);
-            logger.error("error", e);
+            logger.error("error  url:{}  boby {}", url, body);
+            logger.error(e.getMessage(), e);
         } catch (IOException e) {
-            logger.info("error  url:{}  boby {}", url, body);
-            logger.error("error", e);
+            logger.error("error  url:{}  boby {}", url, body);
+            logger.error(e.getMessage(), e);
         } finally {
             post.releaseConnection();
             if (url.startsWith("https") && client != null && client instanceof CloseableHttpClient) {
                 try {
                     ((CloseableHttpClient) client).close();
                 } catch (IOException e) {
-                    logger.info("https client can't close");
-                    logger.error("error", e);
+                    logger.error("https client can't close");
+                    logger.error(e.getMessage(), e);
                 }
             }
         }
@@ -218,11 +218,11 @@ public class HttpClientUtils {
             }
             return EntityUtils.toString(res.getEntity());
         } catch (GeneralSecurityException e) {
-            logger.info("error  url:{}  boby {}", url, params);
-            logger.error("error", e);
+            logger.error("error  url:{}  boby {}", url, params);
+            logger.error(e.getMessage(), e);
         } catch (IOException e) {
-            logger.info("error  url:{}  boby {}", url, params);
-            logger.error("error", e);
+            logger.error("error  url:{}  boby {}", url, params);
+            logger.error(e.getMessage(), e);
         } finally {
             post.releaseConnection();
             if (url.startsWith("https") && client != null
@@ -230,8 +230,8 @@ public class HttpClientUtils {
                 try {
                     ((CloseableHttpClient) client).close();
                 } catch (IOException e) {
-                    logger.info("https client can't close");
-                    logger.error("error", e);
+                    logger.error("https client can't close");
+                    logger.error(e.getMessage(), e);
                 }
             }
         }
@@ -278,19 +278,19 @@ public class HttpClientUtils {
 
             result = EntityUtils.toString(res.getEntity());
         } catch (GeneralSecurityException e) {
-            logger.info("error  url:{}" , url);
-            logger.info("error", e);
+            logger.error("error  url:{}" , url);
+            logger.error(e.getMessage(), e);
         } catch (IOException e) {
-            logger.info("error  url:{}" , url);
-            logger.info("error", e);
+            logger.error("error  url:{}" , url);
+            logger.error(e.getMessage(), e);
         } finally {
             get.releaseConnection();
             if (url.startsWith("https") && client != null && client instanceof CloseableHttpClient) {
                 try {
                     ((CloseableHttpClient) client).close();
                 } catch (IOException e) {
-                    logger.info("https client can't close");
-                    logger.info("error:", e);
+                    logger.error("https client can't close");
+                    logger.error(e.getMessage(), e);
                 }
             }
         }
@@ -326,19 +326,19 @@ public class HttpClientUtils {
 
             result = EntityUtils.toString(res.getEntity());
         } catch (GeneralSecurityException e) {
-            logger.info("error  url:{}" , url);
-            logger.info("error", e);
+            logger.error("error  url:{}" , url);
+            logger.error(e.getMessage(), e);
         } catch (IOException e) {
-            logger.info("error  url:{}" , url);
-            logger.info("error", e);
+            logger.error("error  url:{}" , url);
+            logger.error(e.getMessage(), e);
         } finally {
             put.releaseConnection();
             if (url.startsWith("https") && client != null && client instanceof CloseableHttpClient) {
                 try {
                     ((CloseableHttpClient) client).close();
                 } catch (IOException e) {
-                    logger.info("error  url:{}" , url);
-                    logger.info("error", e);
+                    logger.error("error  url:{}" , url);
+                    logger.error(e.getMessage(), e);
                 }
             }
         }
@@ -382,7 +382,7 @@ public class HttpClientUtils {
             return HttpClients.custom().setSSLSocketFactory(sslsf).build();
 
         } catch (GeneralSecurityException e) {
-            logger.info("error:", e);
+            logger.error(e.getMessage(), e);
         }
         return null;
     }

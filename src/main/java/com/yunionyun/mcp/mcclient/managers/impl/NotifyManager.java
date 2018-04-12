@@ -82,6 +82,7 @@ public class NotifyManager extends BaseNotifyManager {
 			JSONObject ret = super.Create(s, params);
 			return ret.getString("id");
 		}catch(Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
